@@ -1,6 +1,7 @@
-package com.example.sarwan.cctask
+package com.example.sarwan.cctask.app
 
 import android.os.Bundle
+import com.example.sarwan.cctask.R
 import com.example.sarwan.cctask.modules.location.LocationBaseActivity
 import com.google.android.gms.maps.model.LatLng
 

@@ -1,9 +1,9 @@
-package com.example.sarwan.cctask
+package com.example.sarwan.cctask.app
 
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.example.sarwan.cctask.app.CCApp
+import com.example.sarwan.cctask.R
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.material.snackbar.Snackbar
 
