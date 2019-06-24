@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "90773605825",
+    "firebase_url": "https://cctask-df572.firebaseio.com",
+    "project_id": "cctask-df572",
+    "storage_bucket": "cctask-df572.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90773605825:android:70c49e5c531d8e7b",
+        "android_client_info": {
+          "package_name": "com.example.sarwan.cctask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "90773605825-tnvemccj8648v8ub7pm29s55brv2en5l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCi8sNuPGJOLl6jRk7dZIiidwcNxEyJY1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "90773605825-tnvemccj8648v8ub7pm29s55brv2en5l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
