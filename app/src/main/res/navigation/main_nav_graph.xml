@@ -5,19 +5,27 @@
             app:startDestination="@id/actionWeather"
             >
 
-
      <fragment android:id="@+id/actionWeather"
-               android:name=""
-               android:label="fragment_payment"
-               tools:layout="@layout/fragment_payment"/>
-     <fragment android:id="@+id/actionCalendar"
-               android:name="com.getlicensed.instructor.modules.calendar.CalendarFragment"
+               android:name="com.example.sarwan.cctask.modules.weather.WeatherFragment"
                android:label="fragment_calendar"
-               tools:layout="@layout/fragment_calendar">
-         <action android:id="@+id/action_calendarFragment_to_ScheduleLessonFragment"
-                 app:enterAnim="@android:animator/fade_in"
-                 app:destination="@id/scheduleLessonFragment"
+               tools:layout="@layout/fragment_weather">
+
+         <action android:id="@+id/action_weatherFragment_to_RestaurantFragment"
+                 app:enterAnim="@android:anim/slide_in_left"
+                 app:exitAnim="@android:anim/slide_out_right"
+                 app:popEnterAnim="@android:anim/fade_in"
+                 app:popExitAnim="@android:anim/fade_out"
+                 app:destination="@id/actionRestaurant"
          />
      </fragment>
+
+
+    <fragment android:id="@+id/actionRestaurant"
+              android:name="com.example.sarwan.cctask.modules.weather.WeatherFragment"
+              android:label="fragment_calendar"
+              tools:layout="@layout/fragment_weather">
+    </fragment>
+
+
 
 </navigation>
