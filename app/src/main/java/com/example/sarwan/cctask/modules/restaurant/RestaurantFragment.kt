@@ -1,4 +1,4 @@
-package com.example.sarwan.cctask.modules.weather
+package com.example.sarwan.cctask.modules.restaurant
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,30 +8,27 @@ import com.example.sarwan.cctask.R
 import com.example.sarwan.cctask.app.BaseFragment
 import com.example.sarwan.cctask.extras.Global
 import com.example.sarwan.cctask.model.GenericModel
-import com.example.sarwan.cctask.model.WeatherResponse
-import com.example.sarwan.cctask.modules.restaurant.RestaurantFragment
-import com.example.sarwan.cctask.modules.restaurant.RestaurantFragmentViewHandling
 import com.example.sarwan.cctask.utils.navigate
-import kotlinx.android.synthetic.main.fragment_weather.*
+import kotlinx.android.synthetic.main.fragment_restaurant.*
 
-class WeatherFragment : BaseFragment(), com.example.sarwan.cctask.interfaces.View{
+class RestaurantFragment : BaseFragment(), com.example.sarwan.cctask.interfaces.View{
 
     override fun updateData(view : View) {
-        WeatherFragmentViewHandling(baseActivity, view , WeatherResponse())
+        RestaurantFragmentViewHandling(baseActivity, view , ArrayList())
     }
 
     override fun clickListener() {
-        show_restaurants?.setOnClickListener {
-            navigateToRestaurant()
+        back?.setOnClickListener {
+            navigateToWeather()
         }
     }
 
-    private fun navigateToRestaurant() {
-        navigate(R.id.action_weatherFragment_to_RestaurantFragment)
+    private fun navigateToWeather() {
+        navigate(R.id.action_restaurantFragment_to_WeatherFragment)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_weather, container, false)
+        return inflater.inflate(R.layout.fragment_restaurant, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -41,10 +38,10 @@ class WeatherFragment : BaseFragment(), com.example.sarwan.cctask.interfaces.Vie
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        getWeatherForecast()
+        getRestaurantList()
     }
 
-    private fun getWeatherForecast() {
+    private fun getRestaurantList() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

@@ -8,6 +8,7 @@ import com.example.sarwan.cctask.R
 import com.example.sarwan.cctask.extensions.applyText
 import com.example.sarwan.cctask.model.WeatherResponse
 import com.example.sarwan.cctask.model.WeatherResult
+import com.example.sarwan.cctask.modules.restaurant.RestaurantItemsAdapter
 import kotlinx.android.synthetic.main.fragment_weather.view.*
 
 class WeatherFragmentViewHandling(private val activity: Activity , private val view : View, private val weatherData : WeatherResponse) {
@@ -38,7 +39,7 @@ class WeatherFragmentViewHandling(private val activity: Activity , private val v
         with(view){
             next_days_rv?.apply {
                 layoutManager = LinearLayoutManager(activity, RecyclerView.HORIZONTAL, false)
-                adapter = WeatherItemsAdapter(activity, nextDays)
+                adapter = RestaurantItemsAdapter(activity, nextDays)
             }
         }
     }
