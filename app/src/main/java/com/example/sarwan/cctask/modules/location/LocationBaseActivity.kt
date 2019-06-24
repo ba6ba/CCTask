@@ -30,7 +30,7 @@ import android.provider.Settings
 import android.util.Log
 import android.view.View
 import androidx.core.app.ActivityCompat
-import com.example.sarwan.cctask.BaseActivity
+import com.example.sarwan.cctask.app.BaseActivity
 import com.example.sarwan.cctask.BuildConfig
 import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.common.api.ResolvableApiException

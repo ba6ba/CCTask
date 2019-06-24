@@ -8,4 +8,5 @@
     <string name="permission_rationale">This permission is required to provide best weather and restaurant results based
         on location.
     </string>
+    <string name="show_restaurants">Show Restaurants</string>
 </resources>
