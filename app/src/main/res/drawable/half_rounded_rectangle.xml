@@ -5,7 +5,9 @@
         <shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
 
             <corners
-                    android:radius="@dimen/corner_radius"
+                    android:topRightRadius="@dimen/corner_radius"
+                    android:bottomRightRadius="@dimen/corner_radius"
+                    android:bottomLeftRadius="@dimen/corner_radius"
             />
         </shape>
     </item>
@@ -14,7 +16,9 @@
         <shape android:shape="rectangle" xmlns:android="http://schemas.android.com/apk/res/android">
 
             <corners
-                    android:radius="@dimen/corner_radius"
+                    android:topRightRadius="@dimen/corner_radius"
+                    android:bottomRightRadius="@dimen/corner_radius"
+                    android:bottomLeftRadius="@dimen/corner_radius"
             />
 
         </shape>

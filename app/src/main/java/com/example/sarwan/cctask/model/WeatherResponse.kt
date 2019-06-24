@@ -1,7 +1,7 @@
 package com.example.sarwan.cctask.model
 
 import com.example.sarwan.cctask.extensions.convertUnixTime
-import com.example.sarwan.cctask.modules.weather.WeatherFragmentUtils
+import com.example.sarwan.cctask.modules.restaurant.RestaurantFragmentUtils
 import java.io.Serializable
 
 class WeatherResponse : Serializable {
@@ -39,6 +39,6 @@ class Temp : Serializable {
 class Weather : Serializable {
     var main : String = ""
     var description : String = ""
-    val iconRes : Int? = WeatherFragmentUtils.iconRes[main]
-    val bgColor : Int? = WeatherFragmentUtils.backgroundColor[main]
+    val iconRes : Int? = RestaurantFragmentUtils.iconRes[main]
+    val bgColor : Int? = RestaurantFragmentUtils.backgroundColor[main]
 }

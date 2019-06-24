@@ -8,9 +8,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.sarwan.cctask.R
 import com.example.sarwan.cctask.extensions.applyText
 import com.example.sarwan.cctask.model.WeatherResult
+import com.example.sarwan.cctask.modules.restaurant.RestaurantItemsAdapter
 import kotlinx.android.synthetic.main.weather_item.view.*
 
-class WeatherItemsAdapter(private val activity: Activity , private val itemsList : List<WeatherResult>) : RecyclerView.Adapter<WeatherItemsAdapter.WeatherItemsViewHolder>() {
+class WeatherItemsAdapter(private val activity: Activity , private val itemsList : List<WeatherResult>) : RecyclerView.Adapter<RestaurantItemsAdapter.WeatherItemsViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WeatherItemsViewHolder {
