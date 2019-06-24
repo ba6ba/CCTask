@@ -40,6 +40,8 @@ object Versions {
     val fragmentTest = "1.1.0-alpha06"
     val databinding = "3.3.2"
     val fresco = "2.0.0"
+    val googlePlay = "15.0.1"
+    val googleMaps = "15.0.1"
 }
 
 object Libraries {
@@ -59,6 +61,7 @@ object Libraries {
     // GLIDE
     val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
     val fresco = "com.facebook.fresco:fresco:${Versions.fresco}"
+
 }
 
 object KotlinLibraries {
@@ -78,6 +81,8 @@ object AndroidLibraries {
     val recyclerView = "androidx.recyclerview:recyclerview:${Versions.recyclerview}"
     val navigation = "androidx.navigation:navigation-ui-ktx:${Versions.nav}"
     val navigationFrag = "androidx.navigation:navigation-fragment-ktx:${Versions.nav}"
+    val googlePlayService = "com.google.android.gms:play-services-location:${Versions.googlePlay}"
+    val googleMaps = "com.google.android.gms:play-services-maps:${Versions.googlePlay}"
 }
 
 object TestLibraries {

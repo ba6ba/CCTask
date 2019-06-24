@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-kapt'
+apply plugin: 'com.google.gms.google-services'
 
 apply plugin: 'kotlin-android-extensions'
 
@@ -24,6 +25,11 @@ android {
     dataBinding {
         enabled true
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -35,6 +41,8 @@ dependencies {
     implementation AndroidLibraries.recyclerView
     implementation AndroidLibraries.navigation
     implementation AndroidLibraries.navigationFrag
+    implementation AndroidLibraries.googlePlayService
+    implementation AndroidLibraries.googleMaps
     implementation Libraries.fresco
     implementation Libraries.gson
     implementation Libraries.retrofit

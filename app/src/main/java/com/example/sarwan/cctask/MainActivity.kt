@@ -1,9 +1,18 @@
 package com.example.sarwan.cctask
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.sarwan.cctask.modules.location.LocationBaseActivity
+import com.google.android.gms.maps.model.LatLng
 
-class MainActivity : BaseActivity() {
+class MainActivity : LocationBaseActivity() {
+
+    override fun onSuccess(`object`: Any) {
+        saveLocationInSharedPreferences(`object` as LatLng)
+    }
+
+    override fun onFailure(error: String) {
+        showMessage(error)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
