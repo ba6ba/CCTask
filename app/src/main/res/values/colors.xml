@@ -7,11 +7,10 @@
     <color name="cloudy">#858282</color>
     <color name="white">#FFFFFF</color>
     <color name="snowy">#EEDDDD</color>
-    <color name="clear">#D4FF6E</color>
+    <color name="clear">#A3DF32</color>
     <color name="sunny">#F7B107</color>
     <color name="black">#000000</color>
     <color name="light_grey">#C2BFBF</color>
     <color name="lightest_grey">#EBE9E9</color>
-
     <color name="dark_grey">#525252</color>
 </resources>

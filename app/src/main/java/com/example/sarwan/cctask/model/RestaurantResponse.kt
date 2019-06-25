@@ -11,5 +11,5 @@ class RestaurantResponse {
     var id : Long = 0L
     var name : String = ""
     var priority : Double = 0.toDouble()
-    var rating : Float = RestaurantFragmentUtils.getRating(priority)
+    var rating : Float = RestaurantFragmentUtils.getRating()
 }

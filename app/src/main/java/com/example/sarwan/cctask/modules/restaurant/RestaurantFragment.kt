@@ -7,14 +7,22 @@ import android.view.ViewGroup
 import com.example.sarwan.cctask.R
 import com.example.sarwan.cctask.app.BaseFragment
 import com.example.sarwan.cctask.extras.Global
+import com.example.sarwan.cctask.interfaces.CCView
 import com.example.sarwan.cctask.model.GenericModel
+import com.example.sarwan.cctask.model.RestaurantResponse
+import com.example.sarwan.cctask.remote.RestaurantRemoteRepository
 import com.example.sarwan.cctask.utils.navigate
 import kotlinx.android.synthetic.main.fragment_restaurant.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class RestaurantFragment : BaseFragment(), com.example.sarwan.cctask.interfaces.View{
+class RestaurantFragment : BaseFragment(), CCView<ArrayList<RestaurantResponse>> {
 
-    override fun updateData(view : View) {
-        RestaurantFragmentViewHandling(baseActivity, view , ArrayList())
+    override fun updateData(view: View?, `object`: ArrayList<RestaurantResponse>?) {
+        `object`?.let {
+            RestaurantFragmentViewHandling(baseActivity, view , `object`)
+        }
     }
 
     override fun clickListener() {
@@ -32,7 +40,6 @@ class RestaurantFragment : BaseFragment(), com.example.sarwan.cctask.interfaces.
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        updateData(view)
         clickListener()
     }
 
@@ -42,9 +49,25 @@ class RestaurantFragment : BaseFragment(), com.example.sarwan.cctask.interfaces.
     }
 
     private fun getRestaurantList() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        baseActivity.getRepository().getLocationFromPrefs(success = {
+            RestaurantRemoteRepository(it).callAsync().enqueue(apiCallBack)
+        },
+            failure = {
+                baseActivity.showMessage(it)
+            })
     }
 
+    private val apiCallBack = object : Callback<ArrayList<RestaurantResponse>> {
+        override fun onFailure(call: Call<ArrayList<RestaurantResponse>>, t: Throwable) {
+            baseActivity.showMessage(t.localizedMessage?:"")
+        }
+
+        override fun onResponse(call: Call<ArrayList<RestaurantResponse>>, response: Response<ArrayList<RestaurantResponse>>) {
+            if (response.isSuccessful){
+                updateData(view, `object` = response.body())
+            }
+        }
+    }
 
     companion object {
         @JvmStatic

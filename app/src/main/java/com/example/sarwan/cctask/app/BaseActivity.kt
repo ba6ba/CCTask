@@ -27,4 +27,7 @@ abstract class BaseActivity : AppCompatActivity() {
             .setAction(getString(actionStringId), listener).show()
     }
 
+    override fun onBackPressed() {
+        finish()
+    }
 }

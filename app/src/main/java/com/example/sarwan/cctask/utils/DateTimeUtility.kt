@@ -11,5 +11,8 @@ object DateTimeUtility {
         return false
     }
 
+
     val sdf = SimpleDateFormat("yyyy-MM-dd")
 }
+
+fun String.isAfterDay(nextDay : String) : Boolean = DateTimeUtility.sdf.parse(this)?.after(DateTimeUtility.sdf.parse(nextDay)) == true
