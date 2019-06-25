@@ -25,8 +25,6 @@ class SplashFragment : BaseFragment() {
         if (navigate){
             doAnimation()
             navigate(R.id.action_splashFragment_to_WeatherFragment)
-        }else {
-            baseActivity.showMessage(baseActivity.resources.getString(R.string.permission_denied_explanation))
         }
     }
 }
