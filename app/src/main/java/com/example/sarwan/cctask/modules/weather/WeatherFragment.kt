@@ -7,17 +7,22 @@ import android.view.ViewGroup
 import com.example.sarwan.cctask.R
 import com.example.sarwan.cctask.app.BaseFragment
 import com.example.sarwan.cctask.extras.Global
+import com.example.sarwan.cctask.interfaces.CCView
 import com.example.sarwan.cctask.model.GenericModel
 import com.example.sarwan.cctask.model.WeatherResponse
-import com.example.sarwan.cctask.modules.restaurant.RestaurantFragment
-import com.example.sarwan.cctask.modules.restaurant.RestaurantFragmentViewHandling
+import com.example.sarwan.cctask.remote.WeatherRemoteRepository
 import com.example.sarwan.cctask.utils.navigate
 import kotlinx.android.synthetic.main.fragment_weather.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
-class WeatherFragment : BaseFragment(), com.example.sarwan.cctask.interfaces.View{
+class WeatherFragment : BaseFragment(), CCView<WeatherResponse>{
 
-    override fun updateData(view : View) {
-        WeatherFragmentViewHandling(baseActivity, view , WeatherResponse())
+    override fun updateData(view: View?, `object`: WeatherResponse?) {
+        `object`?.let {
+            WeatherFragmentViewHandling(baseActivity, view , `object`)
+        }
     }
 
     override fun clickListener() {
@@ -35,7 +40,6 @@ class WeatherFragment : BaseFragment(), com.example.sarwan.cctask.interfaces.Vie
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        updateData(view)
         clickListener()
     }
 
@@ -45,13 +49,29 @@ class WeatherFragment : BaseFragment(), com.example.sarwan.cctask.interfaces.Vie
     }
 
     private fun getWeatherForecast() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        baseActivity.getRepository().getLocationFromPrefs(success = {
+            WeatherRemoteRepository(it).callAsync().enqueue(apiCallBack)
+        },
+            failure = {
+                baseActivity.showMessage(it)
+            })
     }
 
+    private val apiCallBack = object : Callback<WeatherResponse>{
+        override fun onFailure(call: Call<WeatherResponse>, t: Throwable) {
+            baseActivity.showMessage(t.localizedMessage?:"")
+        }
+
+        override fun onResponse(call: Call<WeatherResponse>, response: Response<WeatherResponse>) {
+            if (response.isSuccessful){
+                updateData(view, response.body())
+            }
+        }
+    }
 
     companion object {
         @JvmStatic
-        fun newInstance(param : GenericModel) = RestaurantFragment().apply {
+        fun newInstance(param : GenericModel) = WeatherFragment().apply {
             arguments = Bundle(1).apply {
                 putSerializable(Global.PARAM_KEY, param)
             }

@@ -2,6 +2,7 @@ package com.example.sarwan.cctask.model
 
 import com.example.sarwan.cctask.extensions.convertUnixTime
 import com.example.sarwan.cctask.modules.restaurant.RestaurantFragmentUtils
+import com.example.sarwan.cctask.modules.weather.WeatherFragmentUtils
 import java.io.Serializable
 
 class WeatherResponse : Serializable {
@@ -12,33 +13,35 @@ class WeatherResponse : Serializable {
 
 class City : Serializable {
     var name : String = ""
+    var id : Long = 0
+    var coord : Coordinates ? = null
+    var country : String = ""
+}
+
+class Coordinates : Serializable {
     var lat : Double = 0.toDouble()
     var lon : Double = 0.toDouble()
-    var geoname_id : Long = 9L
 }
 
 class WeatherResult : Serializable {
     var dt : Long = 0L
-    val date = dt.convertUnixTime()
-    var temp : Temp ? = null
-    var pressure : Double  = 0.toDouble()
-    var humidity : Int  = 0
+    var date = dt.convertUnixTime()
+    var main : Temp ? = null
     var weather : ArrayList<Weather> ? = null
-
 }
 
 class Temp : Serializable {
-    var day : Double  = 0.toDouble()
-    var min : Double  = 0.toDouble()
-    var max : Double  = 0.toDouble()
-    var night : Double  = 0.toDouble()
-    var eve : Double  = 0.toDouble()
-    var morn : Double  = 0.toDouble()
+    var temp : Double  = 0.toDouble()
+    var temp_min : Double  = 0.toDouble()
+    var temp_max : Double  = 0.toDouble()
+    var pressure : Double  = 0.toDouble()
+    var sea_level : Double  = 0.toDouble()
+    var humidity : Int  = 0
 }
 
 class Weather : Serializable {
     var main : String = ""
     var description : String = ""
-    val iconRes : Int? = RestaurantFragmentUtils.iconRes[main]
-    val bgColor : Int? = RestaurantFragmentUtils.backgroundColor[main]
+    var iconRes : Int? = WeatherFragmentUtils.iconRes[main]
+    var bgColor : Int? = WeatherFragmentUtils.backgroundColor[main]
 }

@@ -67,6 +67,8 @@ abstract class LocationBaseActivity : BaseActivity() {
      * */
     abstract fun onFailure(error : String)
 
+    abstract fun havePermission(have : Boolean)
+
     /**
      * Check If user denies to give an access to device location.
      */
@@ -283,6 +285,7 @@ abstract class LocationBaseActivity : BaseActivity() {
     private fun checkPermissions(): Boolean {
         val permissionState = ActivityCompat.checkSelfPermission(this,
             Manifest.permission.ACCESS_FINE_LOCATION)
+        havePermission(permissionState == PackageManager.PERMISSION_GRANTED)
         return permissionState == PackageManager.PERMISSION_GRANTED
     }
 

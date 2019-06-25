@@ -21,14 +21,13 @@ class RestaurantItemsAdapter(private val activity: Activity, private val itemsLi
 
     override fun onBindViewHolder(holder: RestaurantTopThreeItemsViewHolder, position: Int) = holder.bind(position)
 
-
     inner class RestaurantTopThreeItemsViewHolder(view : View) : RecyclerView.ViewHolder(view) {
         fun bind(position: Int) {
             with(itemView){
                 itemsList[position].also {
-                    if (position>3) top_3_badge?.visibility = View.GONE
+                    if (it.rating == 5.0f) top_3_badge?.visibility = View.VISIBLE
                     name?.applyText(it.name)
-                    sub_name?.applyText(it.subcat_name)
+                    sub_name?.applyText(it.subcat_name.toLowerCase().capitalize())
                     rating?.applyText(it.rating)
                 }
             }

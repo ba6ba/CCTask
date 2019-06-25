@@ -4,19 +4,19 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent"
+              android:background="@color/white"
 >
 
     <androidx.constraintlayout.widget.ConstraintLayout android:layout_width="match_parent"
                                                        android:layout_height="match_parent"
                                                        android:padding="@dimen/normal_padding"
-                                                       android:background="@color/colorAccent"
                                                        android:id="@+id/current_weather_color"
     >
 
 
         <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp" tools:srcCompat="@tools:sample/avatars[2]"
+                android:layout_width="200dp"
+                android:layout_height="200dp" tools:srcCompat="@drawable/ic_clear"
                 android:id="@+id/icon"
                 android:scaleX="0.9"
                 android:scaleY="0.9"
@@ -25,13 +25,13 @@
                 android:layout_marginBottom="32dp" app:layout_constraintBottom_toTopOf="@+id/next_days_rv"
                 android:layout_marginTop="32dp" app:layout_constraintTop_toBottomOf="@+id/_humidity"/>
         <TextView android:layout_width="0dp" android:layout_height="wrap_content"
-                  android:textAppearance="@style/TextView.Small"
+                  android:textAppearance="@style/TextView.Medium"
                   android:id="@+id/_humidity"
                   android:text="Humidity : "
                   app:layout_constraintTop_toBottomOf="@+id/status" android:layout_marginTop="8dp"
                   app:layout_constraintStart_toEndOf="@+id/_pressure" android:layout_marginStart="24dp"/>
         <TextView android:layout_width="0dp" android:layout_height="wrap_content"
-                  android:textAppearance="@style/TextView.Small"
+                  android:textAppearance="@style/TextView.Medium"
                   android:id="@+id/_pressure"
                   app:layout_constraintStart_toStartOf="parent"
                   android:text="Pressure : "
@@ -50,17 +50,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" android:id="@+id/show_restaurants"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginEnd="8dp" android:layout_marginTop="8dp"
+                android:layout_marginTop="8dp"
                 app:layout_constraintTop_toTopOf="@+id/status2"
-
+                android:paddingStart="@dimen/normal_padding"
+                android:paddingEnd="@dimen/normal_padding"
                 style="@style/TextView.Background.Rounded.Blue"
-                app:layout_constraintBottom_toBottomOf="@+id/status2"/>
+                android:textSize="@dimen/normal_text_size"
+                app:layout_constraintBottom_toBottomOf="@+id/status2" android:layout_marginBottom="8dp"/>
 
         <TextView android:layout_width="0dp" android:layout_height="wrap_content"
                   android:textAppearance="@style/TextView.Large"
                   android:id="@+id/status"
+                  android:textSize="@dimen/v_large_text_size"
+                  android:fontFamily="@font/opensanssemibold"
                   app:layout_constraintStart_toStartOf="parent"
-                  android:text="Sunny"
                   android:layout_marginEnd="8dp"
                   app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="24dp"
                   app:layout_constraintTop_toBottomOf="@+id/status2"/>
@@ -73,21 +76,22 @@
                                                            android:layout_marginBottom="8dp"
                                                            app:layout_constraintBottom_toBottomOf="parent"
                                                            android:layout_marginTop="8dp"
-                                                           app:layout_constraintTop_toTopOf="@+id/next_days_rv">
+                                                           app:layout_constraintTop_toTopOf="@+id/next_days_rv"
+        >
 
             <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:textAppearance="@style/TextView.Large"
                       android:id="@+id/city"
                       app:layout_constraintStart_toStartOf="parent" app:layout_constraintTop_toTopOf="parent"
-                      android:text="Karachi"/>
+            />
 
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
                       android:textAppearance="@style/TextView.Large"
                       android:id="@+id/temperature"
-                      android:textSize="@dimen/v_v_large_text_size"
+                      android:textSize="@dimen/v_large_text_size"
                       app:layout_constraintStart_toStartOf="parent"
-                      android:text="32" app:layout_constraintTop_toBottomOf="@+id/city" android:layout_marginTop="8dp"
-                      app:layout_constraintEnd_toEndOf="parent"/>
+                      app:layout_constraintTop_toBottomOf="@+id/city" android:layout_marginTop="8dp"
+            />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -97,7 +101,7 @@
                                                    app:layout_constraintEnd_toEndOf="parent"
                                                    app:layout_constraintBottom_toBottomOf="parent"
                                                    app:layout_constraintStart_toEndOf="@+id/city_layout"
-                                                   android:layout_marginStart="24dp"/>
+                                                   android:layout_marginStart="32dp"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

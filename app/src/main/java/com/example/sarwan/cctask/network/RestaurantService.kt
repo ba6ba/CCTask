@@ -13,5 +13,5 @@ interface RestaurantService {
     fun fetchRestaurantList(@Query("apikey") appid: String = Global.TPL_MAPS_KEY,
                          @Query("name") name: String = "Restaurant",
                          @Query("point") point: String,
-                         @Query("limit") limit: Int = 20): Call<ArrayList<RestaurantResponse>>
+                         @Query("limit") limit: Int = 30): Call<ArrayList<RestaurantResponse>>
 }

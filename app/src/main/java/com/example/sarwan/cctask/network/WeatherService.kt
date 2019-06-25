@@ -8,10 +8,9 @@ import retrofit2.http.Query
 
 interface WeatherService {
 
-    @GET("forecast/daily")
+    @GET("forecast/")
     fun fetchWeatherList(@Query("appid") appid: String = Global.OPEN_WEATHER_MAP_API_KEY,
                          @Query("lat") lat: String,
                          @Query("lon") lon: String,
-                         @Query("cnt") count: Int = 5,
                          @Query("units") units: String = "metric"): Call<WeatherResponse>
 }
